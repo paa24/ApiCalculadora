@@ -1,13 +1,13 @@
-package com.apicalculadora;
+package com.test4.apicalcualadora;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Test4Application {
+public class ApicalcualadoraApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Test4Application.class, args);
+		SpringApplication.run(ApicalcualadoraApplication.class, args);
 	}
 
 }
