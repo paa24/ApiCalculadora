@@ -1,26 +1,37 @@
 package com.test4.apicalcualadora.service;
 
 import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.stereotype.Service;
+
+import com.test4.apicalcualadora.excepciones.OperationException;
+import com.test4.apicalcualadora.modelo.Resultado;
 
 @Service
 public class CalculadorServicice {
 
-	public Float calcular(String operation, Float n, Float n1) {
+	public Resultado calcular(String operation, Float n1, Float n2) {
 
-		Float result = null;
-		if (StringUtils.isNotBlank(operation) && n != null && n1 != null) {
+		Resultado resultado = new Resultado();
+
+		if (StringUtils.isNotBlank(operation) && n1 != null && n2 != null) {
 
 			if (operation.equals("S")) {
-				result = n + n1;
+				resultado.setResultado(n1 + n2);
+
 			} else if (operation.equals("R")) {
-				result = n - n1;
+				resultado.setResultado(n1 - n2);
 
 			}
 
 		}
 
-		return result;
+		else {
+
+			throw new OperationException("Operación inválida");
+
+		}
+		return resultado;
 	}
 
 }
