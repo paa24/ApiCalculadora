@@ -1,0 +1,10 @@
+# test 4 apicalculadora
+## Generar jar
+
+mvn clean install package
+
+## Installation
+ Para arrancar :
+ 
+ mvnw clean spring-boot:run
+ El puerto configurado es el 8081
