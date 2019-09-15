@@ -6,14 +6,26 @@ import org.springframework.stereotype.Service;
 import com.test4.apicalcualadora.dto.ResultadoDTO;
 import com.test4.apicalcualadora.excepciones.OperationException;
 import com.test4.apicalcualadora.modelo.Resultado;
+import com.test4.apicalcualadora.util.constantes.OperacionesConstanstes;
 
 import io.corp.calculator.TracerImpl;
-import lombok.extern.log4j.Log4j2;
+
+/**
+ * Servicio de procesamiento que realiza las operaciones de la calcualdora
+ */
 
 @Service
-@Log4j2
 public class CalculadorServicio {
-
+	/**
+	 * Realiza las operaciones de la Calculadora
+	 * 
+	 * @param operation
+	 *            Operación a realizar "S"(Suma)o "R"(Resta).
+	 * @param n1
+	 *            Primer registro de la operación
+	 * @param n2
+	 *            Segundo registro de la operación.
+	 */
 	public ResultadoDTO calcular(String operation, Float n1, Float n2) {
 		TracerImpl tracer = new TracerImpl();
 
@@ -21,10 +33,10 @@ public class CalculadorServicio {
 		ModelMapper mapper = new ModelMapper();
 		if (StringUtils.isNotBlank(operation) && n1 != null && n2 != null) {
 
-			if (operation.equals("S")) {
+			if (operation.equals(OperacionesConstanstes.SUMA)) {
 				resultado.setResultado(n1 + n2);
 
-			} else if (operation.equals("R")) {
+			} else if (operation.equals(OperacionesConstanstes.RESTA)) {
 				resultado.setResultado(n1 - n2);
 
 			} else {

@@ -1,4 +1,5 @@
 package com.test4.apicalcualadora.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +17,9 @@ public class CalculadoraController {
 	private CalculadorServicio calculadora;
 
 	@PostMapping(value = "/operaciones", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResultadoDTO Calculadora(@RequestParam(value = "num1")  Float num1,
-			@RequestParam(value = "num2") Float num2, @RequestParam(value = "operacion")String operacion) {
-				
+	public ResultadoDTO Calculadora(@RequestParam(value = "operacion") String operacion,
+			@RequestParam(value = "num1") Float num1, @RequestParam(value = "num2") Float num2) {
+
 		return calculadora.calcular(operacion, num1, num2);
 	}
 }
